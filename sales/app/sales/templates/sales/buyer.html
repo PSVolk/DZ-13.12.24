@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{title}}{% endblock %}
+{% block content %}
+{%for page in pages %}
+    <a href=/{{page.0}} class="list-group-item list-group-item-action">{{page.1}}</a>
+{% endfor%}
+ {% if form %}
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Send" >
+    {% endif%}
+{% endblock %}
